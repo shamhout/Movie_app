@@ -11,5 +11,11 @@ class AppTheme {
       backgroundColor: AppColor.blackColor,
     ),
     scaffoldBackgroundColor: AppColor.blackColor,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: AppColor.grayColor,
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: AppColor.yellow,
+      unselectedItemColor: AppColor.whiteColor,
+    ),
   );
 }
