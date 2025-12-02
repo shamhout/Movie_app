@@ -3,7 +3,7 @@ import 'package:movie_app/utils/app_color.dart';
 import 'package:movie_app/utils/app_style.dart';
 
 class AppTheme {
-  static final ThemeData theme = ThemeData(
+  static final ThemeData darkTheme = ThemeData(
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       iconTheme: IconThemeData(color: AppColor.yellow),
@@ -11,7 +11,7 @@ class AppTheme {
       backgroundColor: AppColor.blackColor,
     ),
     scaffoldBackgroundColor: AppColor.blackColor,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: AppColor.grayColor,
       type: BottomNavigationBarType.fixed,
       selectedItemColor: AppColor.yellow,

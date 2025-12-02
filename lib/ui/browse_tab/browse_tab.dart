@@ -7,7 +7,7 @@ class BrowseTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Browse Tab"),
+        title: const Text("Browse Tab"),
       ),
     );
   }

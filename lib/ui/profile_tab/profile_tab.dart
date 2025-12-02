@@ -7,7 +7,7 @@ class ProfileTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile Tab"),
+        title: const Text("Profile Tab"),
       ),
     );
   }

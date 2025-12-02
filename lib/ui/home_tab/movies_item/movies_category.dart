@@ -4,13 +4,13 @@ import 'package:movie_app/ui/home_tab/home_tab_item/home_tab_Item.dart';
 import 'package:movie_app/utils/app_color.dart';
 import 'package:movie_app/utils/app_style.dart';
 
-class HomeTab extends StatelessWidget {
-  const HomeTab({super.key});
+class MoviesCategory extends StatelessWidget {
+  const MoviesCategory({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: ApiManager.getMovies(),
+      future: ApiManager.getMoviesByGenre('Action'),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(
@@ -45,8 +45,8 @@ class HomeTab extends StatelessWidget {
             ],
           );
         }
-        var moviesList = snapshot.data?.data?.movies ?? [];
-        return Hometabitem(movieList: moviesList);
+        var actionMovies = snapshot.data?.data?.movies ?? [];
+        return Hometabitem(movieList: actionMovies);
       },
     );
   }
