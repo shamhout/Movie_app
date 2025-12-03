@@ -12,4 +12,5 @@ class AppRoute {
   static const String searchTab = 'searchTab';
   static const String profileTab = 'profileTab';
   static const String browseTab = 'browseTab';
+  static const String seeMoreScreen = "seeMoreScreen";
 }

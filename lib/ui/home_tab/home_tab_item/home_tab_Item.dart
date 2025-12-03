@@ -5,6 +5,7 @@ import 'package:movie_app/api/api_model/movies_response.dart';
 import 'package:movie_app/ui/home_tab/movies_item/movies_item.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_color.dart';
+import 'package:movie_app/utils/app_route.dart';
 import 'package:movie_app/utils/app_style.dart';
 
 class Hometabitem extends StatefulWidget {
@@ -70,9 +71,9 @@ class _HometabitemState extends State<Hometabitem> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: [
-                            Color(0x00121312), // 0%
-                            Color(0x78121312), // 47%
-                            Color(0xFF121312), // 100%
+                            Color(0x00121312),
+                            Color(0x78121312),
+                            Color(0xFF121312),
                           ],
                           stops: [0.0, 0.5, 1.0],
                         ),
@@ -132,7 +133,16 @@ class _HometabitemState extends State<Hometabitem> {
                         style: AppStyle.reglur20white,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            AppRoute.seeMoreScreen,
+                            arguments: {
+                              "title": "Action Movies",
+                              "movies": actionMoviesList,
+                            },
+                          );
+                        },
                         child: Row(
                           children: [
                             const Text(
@@ -161,7 +171,9 @@ class _HometabitemState extends State<Hometabitem> {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoute.movieDetailsScreen, arguments: actionMoviesList[index].id);
+                          },
                           child: Container(
                             width: width * 0.5,
                             clipBehavior: Clip.antiAlias,
@@ -174,18 +186,18 @@ class _HometabitemState extends State<Hometabitem> {
                               children: [
                                 Container(
                                   margin: EdgeInsets.symmetric(horizontal: width * 0.02, vertical: height * 0.01),
-                                  // padding: EdgeInsets.symmetric(
-                                  //     horizontal: width*0.005,
-                                  //     vertical: height*0.003
-                                  // ),
                                   width: width * 0.15,
                                   height: height * 0.05,
-                                  decoration: BoxDecoration(color: AppColor.blackTransparentColor, borderRadius: BorderRadius.circular(10)),
+                                  decoration: BoxDecoration(color: AppColor.blackTransparentColor, borderRadius: BorderRadius.circular(16)),
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
                                         '${actionMoviesList[index].rating}',
                                         style: AppStyle.bold16White,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
                                       ),
                                       const Icon(
                                         Icons.star,
@@ -222,7 +234,16 @@ class _HometabitemState extends State<Hometabitem> {
                         style: AppStyle.reglur20white,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            AppRoute.seeMoreScreen,
+                            arguments: {
+                              "title": "Drama Movies",
+                              "movies": dramaMoviesList,
+                            },
+                          );
+                        },
                         child: Row(
                           children: [
                             const Text(
@@ -251,7 +272,9 @@ class _HometabitemState extends State<Hometabitem> {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushNamed(context, AppRoute.movieDetailsScreen, arguments: dramaMoviesList[index].id);
+                          },
                           child: Container(
                             width: width * 0.5,
                             clipBehavior: Clip.antiAlias,
@@ -267,12 +290,16 @@ class _HometabitemState extends State<Hometabitem> {
                                   padding: EdgeInsets.symmetric(horizontal: width * 0.005, vertical: height * 0.003),
                                   width: width * 0.15,
                                   height: height * 0.05,
-                                  decoration: BoxDecoration(color: AppColor.blackTransparentColor, borderRadius: BorderRadius.circular(10)),
+                                  decoration: BoxDecoration(color: AppColor.blackTransparentColor, borderRadius: BorderRadius.circular(16)),
                                   child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
                                         '${dramaMoviesList[index].rating}',
                                         style: AppStyle.bold16White,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
                                       ),
                                       const Icon(
                                         Icons.star,

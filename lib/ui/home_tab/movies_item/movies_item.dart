@@ -37,7 +37,7 @@ class MoviesItem extends StatelessWidget {
                     '${movie.rating}',
                     style: AppStyle.bold16White,
                   ),
-                  Icon(
+                  const Icon(
                     Icons.star,
                     color: AppColor.yellow,
                   )

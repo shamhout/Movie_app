@@ -13,7 +13,7 @@ class HomeTab extends StatelessWidget {
       future: ApiManager.getMovies(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(
               color: AppColor.yellow,
             ),
@@ -29,7 +29,7 @@ class HomeTab extends StatelessWidget {
                   onPressed: () {
                     ApiManager.getMovies();
                   },
-                  child: Text('Try again'))
+                  child: const Text('Try again'))
             ],
           );
         }
@@ -41,7 +41,7 @@ class HomeTab extends StatelessWidget {
                   onPressed: () {
                     ApiManager.getMovies();
                   },
-                  child: Text('Try again'))
+                  child: const Text('Try again'))
             ],
           );
         }
