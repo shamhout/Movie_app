@@ -61,4 +61,23 @@ class ApiManager {
       rethrow;
     }
   }
+
+  static Future<List<Movies>> searchMovies(String query) async {
+    try {
+      Uri url = Uri.https(
+        Endpoint.serverName,
+        Endpoint.apiName,
+        {
+          "query_term": query,
+        },
+      );
+
+      var response = await http.get(url);
+      var jsonData = jsonDecode(response.body);
+
+      return MoviesResponse.fromJson(jsonData).data?.movies ?? [];
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
