@@ -42,11 +42,17 @@ class MovieDetailsScreen extends StatelessWidget {
   }
 }
 
-class MovieDetailsContent extends StatelessWidget {
+class MovieDetailsContent extends StatefulWidget {
   final MovieModel movie;
 
   const MovieDetailsContent({super.key, required this.movie});
 
+  @override
+  State<MovieDetailsContent> createState() => _MovieDetailsContentState();
+}
+
+class _MovieDetailsContentState extends State<MovieDetailsContent> {
+  bool isSaved = false;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -60,7 +66,7 @@ class MovieDetailsContent extends StatelessWidget {
           Stack(
             children: [
               CachedNetworkImage(
-                imageUrl: movie.largeCoverImage ?? "",
+                imageUrl: widget.movie.largeCoverImage ?? "",
                 width: double.infinity,
                 height: height * 0.8,
                 fit: BoxFit.cover,
@@ -102,15 +108,26 @@ class MovieDetailsContent extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 40,
+                top: 35,
                 right: 16,
-                child: Container(
-                  padding: const EdgeInsets.all(14),
-                  decoration: const BoxDecoration(
-                    color: Colors.transparent,
-                    shape: BoxShape.circle,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isSaved = !isSaved;
+                    });
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(14),
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      isSaved ? Icons.bookmark : Icons.bookmark_border,
+                      color: Colors.white,
+                      size: 30,
+                    ),
                   ),
-                  child: const Icon(Icons.bookmark_border, color: Colors.white),
                 ),
               ),
               Positioned(
@@ -151,9 +168,9 @@ class MovieDetailsContent extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                    Text(movie.title ?? '', style: AppStyle.roboto24BoldWhite),
+                    Text(widget.movie.title ?? '', style: AppStyle.roboto24BoldWhite),
                     SizedBox(height: height * 0.01),
-                    Text('${movie.year ?? ""}', style: AppStyle.roboto20BoldGray),
+                    Text('${widget.movie.year ?? ""}', style: AppStyle.roboto20BoldGray),
                     SizedBox(height: height * 0.015),
                   ]))
             ],
@@ -189,7 +206,7 @@ class MovieDetailsContent extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: width * 0.005),
                         child: StatBox(
                           icon: Icons.favorite,
-                          text: movie.likeCount?.toString() ?? "0",
+                          text: widget.movie.likeCount?.toString() ?? "0",
                           color: AppColor.yellow,
                         ),
                       ),
@@ -199,7 +216,7 @@ class MovieDetailsContent extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: width * 0.005),
                         child: StatBox(
                           icon: Icons.access_time_filled,
-                          text: '${movie.runtime ?? 0}',
+                          text: '${widget.movie.runtime ?? 0}',
                           color: AppColor.yellow,
                         ),
                       ),
@@ -209,7 +226,7 @@ class MovieDetailsContent extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: width * 0.005),
                         child: StatBox(
                           icon: Icons.star,
-                          text: movie.rating?.toString() ?? "-",
+                          text: widget.movie.rating?.toString() ?? "-",
                           color: AppColor.yellow,
                         ),
                       ),
@@ -222,7 +239,7 @@ class MovieDetailsContent extends StatelessWidget {
                   child: Text('Screen Shots', style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.01),
-                ScreenshotsColumn(images: movie.mediumScreenshots ?? []),
+                ScreenshotsColumn(images: widget.movie.mediumScreenshots ?? []),
                 SizedBox(height: height * 0.025),
                 Align(
                   alignment: Alignment.centerLeft,
@@ -230,7 +247,7 @@ class MovieDetailsContent extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.015),
                 FutureBuilder(
-                  future: ApiManager.getMovieSuggestions(movie.id!),
+                  future: ApiManager.getMovieSuggestions(widget.movie.id!),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(child: CircularProgressIndicator());
@@ -279,7 +296,7 @@ class MovieDetailsContent extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.01),
                 Text(
-                  movie.descriptionFull ?? "",
+                  widget.movie.descriptionFull ?? "",
                   style: AppStyle.roboto16RegularWhite,
                 ),
                 SizedBox(height: height * 0.025),
@@ -289,7 +306,7 @@ class MovieDetailsContent extends StatelessWidget {
                 ),
                 SizedBox(height: height * 0.01),
                 Column(
-                  children: movie.cast?.map((actor) {
+                  children: widget.movie.cast?.map((actor) {
                         return CastCard(
                           image: actor.urlSmallImage ?? "",
                           name: actor.name ?? "",
@@ -304,7 +321,7 @@ class MovieDetailsContent extends StatelessWidget {
                   child: Text('Genres', style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.012),
-                GenresList(genres: movie.genres ?? []),
+                GenresList(genres: widget.movie.genres ?? []),
                 SizedBox(height: height * 0.02),
               ],
             ),
