@@ -65,7 +65,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             index: i,
             onNext: () {
               if (i == items.length - 1) {
-                Navigator.pushReplacementNamed(context, AppRoute.homeScreen);
+                Navigator.pushReplacementNamed(context, AppRoute.loginScreen);
               } else {
                 _controller.nextPage(
                   duration: Duration(milliseconds: 300),
