@@ -24,7 +24,7 @@ class MovieDetailsScreen extends StatelessWidget {
         future: ApiManager.getMovieDetails(movieId),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
                 child: CircularProgressIndicator(
               color: AppColor.yellow,
             ));
@@ -70,7 +70,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                 width: double.infinity,
                 height: height * 0.8,
                 fit: BoxFit.cover,
-                placeholder: (_, __) => Center(
+                placeholder: (_, __) => const Center(
                     child: CircularProgressIndicator(
                   color: AppColor.yellow,
                 )),
@@ -137,19 +137,19 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                 child: Center(
                   child: Container(
                     padding: const EdgeInsets.all(4),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: AppColor.yellow,
                       shape: BoxShape.circle,
                     ),
                     child: Container(
                       padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: AppColor.whiteColor,
                         shape: BoxShape.circle,
                       ),
                       child: Container(
                         padding: const EdgeInsets.all(14),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: AppColor.yellow,
                           shape: BoxShape.circle,
                         ),

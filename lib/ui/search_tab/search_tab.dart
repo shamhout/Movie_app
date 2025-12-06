@@ -67,7 +67,7 @@ class _SearchTabState extends State<SearchTab> {
               ),
             ),
             if (isLoading)
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(20),
                 child: CircularProgressIndicator(
                   color: AppColor.yellow,
