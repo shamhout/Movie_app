@@ -38,7 +38,7 @@ class SimilarItem extends StatelessWidget {
               children: [
                 Text(rating, style: AppStyle.roboto16RegularWhite),
                 const SizedBox(width: 4),
-                Icon(Icons.star, color: AppColor.yellow, size: 16),
+                const Icon(Icons.star, color: AppColor.yellow, size: 16),
               ],
             ),
           ),

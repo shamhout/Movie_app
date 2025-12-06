@@ -50,6 +50,7 @@ class _SearchTabState extends State<SearchTab> {
                 child: TextField(
                   controller: _controller,
                   onChanged: _onSearchChanged,
+                  cursorColor: AppColor.yellow,
                   style: const TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: InputBorder.none,

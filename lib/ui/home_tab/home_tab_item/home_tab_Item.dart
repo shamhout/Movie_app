@@ -196,7 +196,7 @@ class _HometabitemState extends State<Hometabitem> {
                                         '${actionMoviesList[index].rating}',
                                         style: AppStyle.bold16White,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 5,
                                       ),
                                       const Icon(
@@ -298,7 +298,7 @@ class _HometabitemState extends State<Hometabitem> {
                                         '${dramaMoviesList[index].rating}',
                                         style: AppStyle.bold16White,
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 5,
                                       ),
                                       const Icon(
