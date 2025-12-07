@@ -107,13 +107,12 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 10),
 
             // ---------------- OR ----------------
-            Row(
-              children: const [
+            const Row(
+              children: [
                 Expanded(child: Divider(color: AppColor.yellow)),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text("OR",
-                      style: TextStyle(color: AppColor.yellow)),
+                  child: Text("OR", style: TextStyle(color: AppColor.yellow)),
                 ),
                 Expanded(child: Divider(color: AppColor.yellow)),
               ],
@@ -132,13 +131,11 @@ class LoginScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                icon: const FaIcon(FontAwesomeIcons.google,
-                    color: AppColor.blackColor),
+                icon: const FaIcon(FontAwesomeIcons.google, color: AppColor.blackColor),
                 onPressed: () {},
                 label: const Text(
                   "Login With Google",
-                  style:
-                  TextStyle(color: AppColor.blackColor, fontSize: 16),
+                  style: TextStyle(color: AppColor.blackColor, fontSize: 16),
                 ),
               ),
             ),
@@ -172,8 +169,7 @@ class LoginScreen extends StatelessWidget {
           hintText: hint,
           hintStyle: const TextStyle(color: AppColor.whiteColor),
           prefixIcon: Icon(icon, color: AppColor.whiteColor),
-          suffixIcon:
-          suffix != null ? Icon(suffix, color: Colors.white70) : null,
+          suffixIcon: suffix != null ? Icon(suffix, color: Colors.white70) : null,
           border: InputBorder.none,
           contentPadding: const EdgeInsets.symmetric(horizontal: 15),
         ),
@@ -215,8 +211,7 @@ class _LanguageToggleState extends State<LanguageToggle> {
             // ------------------ Highlight Circle ------------------
             AnimatedAlign(
               duration: const Duration(milliseconds: 250),
-              alignment:
-              isEnglish ? Alignment.centerLeft : Alignment.centerRight,
+              alignment: isEnglish ? Alignment.centerLeft : Alignment.centerRight,
               child: Container(
                 width: 45,
                 height: 45,

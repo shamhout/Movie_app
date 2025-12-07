@@ -19,14 +19,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     OnBoardingModel(
       image: AppAssets.onborading1,
       title: "Find Your Next Favorite Movie Here",
-      subtitle:
-      "Get access to a huge library of movies to suit all tastes. You will surely like it.",
+      subtitle: "Get access to a huge library of movies to suit all tastes. You will surely like it.",
     ),
     OnBoardingModel(
       image: AppAssets.onborading2,
       title: "Discover Movies",
-      subtitle:
-      "Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.",
+      subtitle: "Explore a vast collection of movies in all qualities and genres. Find your next favorite film with ease.",
     ),
     OnBoardingModel(
       image: AppAssets.onborading3,
@@ -68,14 +66,14 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 Navigator.pushReplacementNamed(context, AppRoute.loginScreen);
               } else {
                 _controller.nextPage(
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
                 );
               }
             },
             onBack: () {
               _controller.previousPage(
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
               );
             },

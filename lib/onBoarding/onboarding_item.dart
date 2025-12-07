@@ -63,19 +63,19 @@ class OnBoardingItem extends StatelessWidget {
                 Text(
                   model.title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColor.whiteColor,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     height: 1.3,
                   ),
                 ),
-                SizedBox(height: 14),
+                const SizedBox(height: 14),
                 Text(
                   model.subtitle,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color:AppColor.whiteColor,
+                  style: const TextStyle(
+                    color: AppColor.whiteColor,
                     fontSize: 16,
                     height: 1.4,
                   ),
@@ -88,19 +88,19 @@ class OnBoardingItem extends StatelessWidget {
         if (isFirstPage)
           Positioned(
             bottom: 40,
-            left:10,
+            left: 10,
             right: 10,
             child: ElevatedButton(
               onPressed: onNext,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColor.yellow,
                 foregroundColor: AppColor.blackColor,
-                padding: EdgeInsets.symmetric(vertical: 14),
+                padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(14),
                 ),
               ),
-              child: Text(
+              child: const Text(
                 "Explore Now",
                 style: TextStyle(fontWeight: FontWeight.w800),
               ),
@@ -114,12 +114,12 @@ class OnBoardingItem extends StatelessWidget {
           Positioned(
             bottom: 0.00001,
             left: 0.0001,
-            right:0.00001,
+            right: 0.00001,
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.85),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(50) ,topRight: Radius.circular(50)),
+                borderRadius: const BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -127,24 +127,24 @@ class OnBoardingItem extends StatelessWidget {
                   Text(
                     model.title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColor.whiteColor,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     model.subtitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColor.whiteColor,
                       fontSize: 15,
                       height: 1.5,
                     ),
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   // زر Next / Finish
                   SizedBox(
@@ -154,33 +154,33 @@ class OnBoardingItem extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColor.yellow,
                         foregroundColor: AppColor.blackColor,
-                        padding: EdgeInsets.symmetric(vertical: 14),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
                       ),
                       child: Text(
                         isLastPage ? "Finish" : "Next",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
 
                   // زر Back
                   if (index > 1) ...[
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
                         onPressed: onBack,
                         style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: AppColor.yellow, width: 1.5),
-                          padding: EdgeInsets.symmetric(vertical: 14),
+                          side: const BorderSide(color: AppColor.yellow, width: 1.5),
+                          padding: const EdgeInsets.symmetric(vertical: 14),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(14),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           "Back",
                           style: TextStyle(color: AppColor.yellow),
                         ),

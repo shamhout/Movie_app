@@ -10,7 +10,6 @@ import 'package:movie_app/ui/home_tab/see_more_screen.dart';
 import 'package:movie_app/ui/movie_details/movies_details_screen.dart';
 import 'package:movie_app/ui/profile_tab/profile_tab.dart';
 import 'package:movie_app/ui/search_tab/search_tab.dart';
-import 'package:movie_app/utils/app_route.dart';
 import 'package:movie_app/utils/app_theme.dart';
 import 'onBoarding/onboarding_screen.dart';
 
@@ -49,11 +48,9 @@ class MyApp extends StatelessWidget {
         AppRoute.searchTab: (context) => const SearchTab(),
         AppRoute.browseTab: (context) => const BrowseTab(),
         AppRoute.profileTab: (context) => const ProfileTab(),
-
         AppRoute.movieDetailsScreen: (context) => MovieDetailsScreen(
-          movieId: ModalRoute.of(context)!.settings.arguments as int,
-        ),
-
+              movieId: ModalRoute.of(context)!.settings.arguments as int,
+            ),
         AppRoute.seeMoreScreen: (context) {
           final args = ModalRoute.of(context)!.settings.arguments as Map;
           return SeeMoreScreen(
