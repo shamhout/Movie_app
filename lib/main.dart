@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movie_app/splash/splash_screen.dart';
-import 'package:movie_app/ui/auth/login/login_screen.dart';
 import 'package:movie_app/api/api_model/movies_response.dart';
+import 'package:movie_app/ui/auth/ForgetPassword.dart';
+import 'package:movie_app/ui/auth/Login.dart';
+import 'package:movie_app/ui/auth/Register.dart';
 import 'package:movie_app/ui/browse_tab/browse_tab.dart';
 import 'package:movie_app/ui/home/home_screen.dart';
 import 'package:movie_app/ui/home_tab/home_tab.dart';
@@ -43,12 +45,14 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoute.splashScreen: (context) => const SplashScreen(),
         AppRoute.onboarding: (context) => const OnBoardingScreen(),
-        AppRoute.loginScreen: (context) => const LoginScreen(),
         AppRoute.homeScreen: (context) => const HomeScreen(),
         AppRoute.homeTab: (context) => const HomeTab(),
         AppRoute.searchTab: (context) => const SearchTab(),
         AppRoute.browseTab: (context) => const BrowseTab(),
         AppRoute.profileTab: (context) => const ProfileTab(),
+        AppRoute.LoginScreen :(context) => const LoginScreen (),
+        AppRoute.RegisterScreen :(context) => const RegisterScreen (),
+        AppRoute.ForgetPassword : (context ) => const ForgetPassword (),
 
         AppRoute.movieDetailsScreen: (context) => MovieDetailsScreen(
           movieId: ModalRoute.of(context)!.settings.arguments as int,
@@ -66,16 +70,20 @@ class MyApp extends StatelessWidget {
   }
 }
 
+class Login {
+  const Login();
+}
+
 class AppRoute {
   static const String splashScreen = "/splash";
   static const String homeTab = "homeTab";
-  static const String loginScreen = "loginScreen";
-  static const String registerScreen = "registerScreen";
+  static const String LoginScreen = "LoginScreen";
+  static const String RegisterScreen = "RegisterScreen";
   static const String onboarding = "/onboarding";
   static const String updateProfile = "update_Profile";
   static const String resetPassword = "ResetPassword";
   static const String homeScreen = "homeScreen";
-  static const String forgetPassword = 'forgetPassword';
+  static const String ForgetPassword = 'ForgetPassword';
   static const String movieDetailsScreen = 'movieDetailsScreen';
   static const String searchTab = 'searchTab';
   static const String profileTab = 'profileTab';
