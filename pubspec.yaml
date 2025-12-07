@@ -33,6 +33,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
+  shared_preferences: ^2.2.3
+
 
 
 
