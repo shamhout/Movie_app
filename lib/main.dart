@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:movie_app/splash/splash_screen.dart';
+import 'package:movie_app/ui/auth/ForgetPassword.dart';
 import 'package:movie_app/ui/auth/login/login_screen.dart';
 import 'package:movie_app/api/api_model/movies_response.dart';
 import 'package:movie_app/ui/browse_tab/browse_tab.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         AppRoute.searchTab: (context) => const SearchTab(),
         AppRoute.browseTab: (context) => const BrowseTab(),
         AppRoute.profileTab: (context) => const ProfileTab(),
+        AppRoute.forgetPassword: (context) => const ForgetPassword(),
         AppRoute.movieDetailsScreen: (context) => MovieDetailsScreen(
               movieId: ModalRoute.of(context)!.settings.arguments as int,
             ),

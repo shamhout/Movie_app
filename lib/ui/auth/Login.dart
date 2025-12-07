@@ -150,9 +150,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: isCensored
                         ? Image.asset(AppAssets.eyeoff)
                         : const Icon(
-                      Icons.remove_red_eye_outlined,
-                      color: Colors.white,
-                    ),
+                            Icons.remove_red_eye_outlined,
+                            color: Colors.white,
+                          ),
                   ),
                 ),
                 Row(
@@ -160,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoute.ForgetPassword);
+                        Navigator.pushNamed(context, AppRoute.forgetPassword);
                       },
                       child: const Text(
                         "Forget Password ?",
@@ -187,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoute.RegisterScreen);
+                        Navigator.pushNamed(context, AppRoute.registerScreen);
                       },
                       child: const Text(
                         "Create One",
@@ -237,7 +237,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
                 ),
-
               ],
             ),
           ),
