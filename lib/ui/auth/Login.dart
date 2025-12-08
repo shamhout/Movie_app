@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/app_route.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../api/auth_api.dart';
 import '../../main.dart';

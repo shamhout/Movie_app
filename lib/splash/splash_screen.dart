@@ -12,7 +12,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -30,16 +29,13 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
-
           Center(
             child: Image.asset(
               AppAssets.logo,
               width: 130,
             ),
           ),
-
           const Spacer(),
-
           const Text(
             "Route",
             style: TextStyle(
@@ -48,9 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-
           const SizedBox(height: 4),
-
           const Text(
             "Supervised by Mohamed Nabil",
             style: TextStyle(
@@ -58,7 +52,6 @@ class _SplashScreenState extends State<SplashScreen> {
               fontSize: 12,
             ),
           ),
-
           const SizedBox(height: 40),
         ],
       ),

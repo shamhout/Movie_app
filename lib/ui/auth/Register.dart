@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/app_route.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../api/auth_api.dart';
 import '../../main.dart';
@@ -183,7 +184,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: height * 0.01),
                 const Text("Avatar", style: AppStyle.reglur16white),
                 SizedBox(height: height * 0.02),
-
                 CustomTextFormField(
                   controller: nameController,
                   prefixIcon: Image.asset(AppAssets.nameIcon),
@@ -226,7 +226,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (value.length < 8) {
                       return "password must have 6 chars or more";
                     }
-                    final strongPasswordRegex = RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$');
+                    final strongPasswordRegex = RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$');
                     if (!strongPasswordRegex.hasMatch(value)) {
                       return "The password must contain at least one lowercase letter, one uppercase letter, and one special character such as @ ";
                     }
@@ -258,7 +258,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 SizedBox(height: height * .024),
-
                 CustomTextFormField(
                   controller: phoneController,
                   prefixIcon: Image.asset(AppAssets.phoneIcon),
@@ -287,7 +286,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 SizedBox(height: height * 0.01),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
