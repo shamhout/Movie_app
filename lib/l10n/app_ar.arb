@@ -5,7 +5,7 @@
   "password": "كلمة المرور",
   "forgetPassword": "هل نسيت كلمة المرور؟",
   "login": "تسجيل الدخول",
-  "dontHaveAcc": "ليس لديك حساب",
+  "dontHaveAcc": "ليس لديك حساب ؟",
   "createOne": "أنشئ حسابًا!",
   "register": "إنشاء حساب",
   "name": "الاسم",
@@ -66,5 +66,16 @@
   "cancel": "إلغاء",
   "delete": "حذف",
   "pleaseEnterName": "يرجى إدخال الاسم",
-  "pleaseEnterPhone": "يرجى إدخال رقم الهاتف"
+  "pleaseEnterPhone": "يرجى إدخال رقم الهاتف",
+  "seeMore": "شاهد المزيد",
+  "search": "بحث",
+  "watch": "مشاهدة",
+  "screenShots": "لقطات الشاشة",
+  "similar": "مشابهة",
+  "summary": "ملخص",
+  "cast": "طاقم التمثيل",
+  "genres": "الأنواع",
+  "backToLogin": "الرجوع لتسجيل الدخول",
+  "changePassword": "تغيير كلمة المرور",
+  "enterEmailAndNewPassword": "ادخل بريدك الإلكتروني وكلمة المرور الجديدة"
 }

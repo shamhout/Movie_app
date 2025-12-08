@@ -7,6 +7,7 @@ import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_color.dart';
 import 'package:movie_app/utils/app_route.dart';
 import 'package:movie_app/utils/app_style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Hometabitem extends StatefulWidget {
   Hometabitem({required this.movieList, super.key});
@@ -33,6 +34,8 @@ class _HometabitemState extends State<Hometabitem> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     if (isLoading) {
       return const Center(
           child: CircularProgressIndicator(
@@ -145,8 +148,8 @@ class _HometabitemState extends State<Hometabitem> {
                         },
                         child: Row(
                           children: [
-                            const Text(
-                              'See More',
+                            Text(
+                              appLocalizations.seeMore,
                               style: AppStyle.reglur16yellow,
                             ),
                             SizedBox(
@@ -246,8 +249,8 @@ class _HometabitemState extends State<Hometabitem> {
                         },
                         child: Row(
                           children: [
-                            const Text(
-                              'See More',
+                            Text(
+                              appLocalizations.seeMore,
                               style: AppStyle.reglur16yellow,
                             ),
                             SizedBox(

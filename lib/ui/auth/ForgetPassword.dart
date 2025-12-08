@@ -5,6 +5,7 @@ import '../../utils/app_assets.dart';
 import '../../utils/app_color.dart';
 import '../../utils/app_style.dart';
 import '../../utils/custom_elevated_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -91,13 +92,15 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColor.yellow),
-        title: const Text(
-          "ForgetPassword",
+        title: Text(
+          appLocalizations.forgetPassword,
           style: AppStyle.reglur16yellow,
         ),
       ),
@@ -109,8 +112,8 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             child: Column(
               children: [
                 Image.asset(AppAssets.forgetPasswordPhoto),
-                const Text(
-                  "Enter your email and new password",
+                Text(
+                  appLocalizations.enterEmailAndNewPassword,
                   style: AppStyle.reglur16white,
                   textAlign: TextAlign.center,
                 ),
@@ -118,7 +121,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 CustomTextFormField(
                   controller: emailController,
                   prefixIcon: Image.asset(AppAssets.emailIcon),
-                  hint: "Email",
+                  hint: appLocalizations.email,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "Please enter your email";
@@ -134,7 +137,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   controller: newPasswordController,
                   prefixIcon: Image.asset(AppAssets.passwordIcon),
                   obscureText: isPasswordObscured,
-                  hint: "New password",
+                  hint: appLocalizations.newPassword,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please enter the new password";
@@ -164,7 +167,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   controller: confirmPasswordController,
                   prefixIcon: Image.asset(AppAssets.passwordIcon),
                   obscureText: isConfirmPasswordObscured,
-                  hint: "Confirm new password",
+                  hint: appLocalizations.confirmNewPassword,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Please confirm your password";
@@ -188,15 +191,18 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 // Reset Password Button
                 SizedBox(
                   width: double.infinity,
-                  child: CustomElevatedButton(onPressed: _resetPassword, text: isLoading ? "Changing..." : "Change Password"),
+                  child: CustomElevatedButton(
+                    onPressed: _resetPassword,
+                    text: isLoading ? "Changing..." : appLocalizations.changePassword,
+                  ),
                 ),
 
                 TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    "Back to login",
+                  child: Text(
+                    appLocalizations.backToLogin,
                     style: AppStyle.reglur14yellow,
                   ),
                 ),

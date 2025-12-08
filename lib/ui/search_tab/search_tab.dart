@@ -4,6 +4,7 @@ import 'package:movie_app/api/api_model/movies_response.dart';
 import 'package:movie_app/ui/home_tab/movies_item/movies_item.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_color.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({super.key});
@@ -35,6 +36,8 @@ class _SearchTabState extends State<SearchTab> {
 
   @override
   Widget build(BuildContext context) {
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColor.blackColor,
@@ -59,7 +62,7 @@ class _SearchTabState extends State<SearchTab> {
                     prefixIcon: Image.asset(
                       AppAssets.searchTop,
                     ),
-                    hintText: "Search",
+                    hintText: appLocalizations.search,
                     hintStyle: const TextStyle(color: AppColor.whiteColor),
                     filled: true,
                     fillColor: AppColor.grayColor,

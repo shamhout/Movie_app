@@ -59,5 +59,16 @@
   "cancel": "Cancel",
   "delete": "Delete",
   "pleaseEnterName": "Please enter name",
-  "pleaseEnterPhone": "Please enter phone number"
+  "pleaseEnterPhone": "Please enter phone number",
+  "seeMore": "See More",
+   "search": "Search",
+  "watch": "Watch",
+  "screenShots": "Screen Shots",
+  "similar": "Similar",
+  "summary": "Summary",
+  "cast": "Cast",
+  "genres": "Genres",
+   "backToLogin": "Back to login",
+  "changePassword": "Change Password",
+  "enterEmailAndNewPassword": "Enter your email and new password"
 }

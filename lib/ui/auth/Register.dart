@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/auth/animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:movie_app/utils/app_route.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../api/auth_api.dart';
-import '../../main.dart';
 import '../../utils/Custom_text_field.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_color.dart';
 import '../../utils/app_style.dart';
 import '../../utils/custom_elevated_button.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -119,11 +120,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
         backgroundColor: AppColor.blackColor,
-        title: const Text("Register", style: AppStyle.reglur16yellow),
+        title: Text(appLocalizations.register, style: AppStyle.reglur16yellow),
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColor.yellow),
       ),
@@ -182,12 +185,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 SizedBox(height: height * 0.01),
-                const Text("Avatar", style: AppStyle.reglur16white),
+                Text(appLocalizations.avatar, style: AppStyle.reglur16white),
                 SizedBox(height: height * 0.02),
                 CustomTextFormField(
                   controller: nameController,
                   prefixIcon: Image.asset(AppAssets.nameIcon),
-                  hint: "Name",
+                  hint: appLocalizations.name,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "please enter your name";
@@ -202,7 +205,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustomTextFormField(
                   controller: emailController,
                   prefixIcon: Image.asset(AppAssets.emailIcon),
-                  hint: "Email",
+                  hint: appLocalizations.email,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "please enter a valid emailAddress";
@@ -218,7 +221,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: passwordController,
                   prefixIcon: Image.asset(AppAssets.passwordIcon),
                   obscureText: isPasswordObscured,
-                  hint: "Password",
+                  hint: appLocalizations.password,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "please enter password";
@@ -242,7 +245,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: confirmPasswordController,
                   prefixIcon: Image.asset(AppAssets.passwordIcon),
                   obscureText: isRePasswordObscured,
-                  hint: "Confirm Password",
+                  hint: appLocalizations.confirmPassword,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Re type password";
@@ -261,7 +264,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 CustomTextFormField(
                   controller: phoneController,
                   prefixIcon: Image.asset(AppAssets.phoneIcon),
-                  hint: "Phone Number",
+                  hint: appLocalizations.phoneNumber,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "please enter a phone number";
@@ -282,20 +285,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         _register();
                       }
                     },
-                    text: isLoading ? "Loading..." : "Create Account",
+                    text: isLoading ? "Loading..." : appLocalizations.createAccount,
                   ),
                 ),
                 SizedBox(height: height * 0.01),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Already Have Account ?", style: AppStyle.reglur14white),
+                    Text(appLocalizations.alreadyHaveAccount, style: AppStyle.reglur14white),
                     TextButton(
                       onPressed: () => Navigator.pop(context),
-                      child: const Text("Login", style: AppStyle.reglur14yellow),
+                      child: Text(appLocalizations.login, style: AppStyle.reglur14yellow),
                     ),
                   ],
                 ),
+                const LanguageToggle(),
+                SizedBox(height: height * 0.05),
               ],
             ),
           ),

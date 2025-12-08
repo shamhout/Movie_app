@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/ui/auth/animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:movie_app/utils/app_route.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../api/auth_api.dart';
-import '../../main.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_color.dart';
 import '../../utils/app_style.dart';
 import '../../utils/custom_elevated_button.dart';
 import '../../utils/custom_text_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -102,6 +103,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * .05),
@@ -116,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 CustomTextFormField(
                   controller: emailController,
                   prefixIcon: Image.asset(AppAssets.emailIcon),
-                  hint: "Email",
+                  hint: appLocalizations.email,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
                       return "please enter your email adress";
@@ -132,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: passwordController,
                   prefixIcon: Image.asset(AppAssets.passwordIcon),
                   obscureText: isCensored,
-                  hint: "Password",
+                  hint: appLocalizations.password,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "please enter your password";
@@ -163,8 +166,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         Navigator.pushNamed(context, AppRoute.forgetPassword);
                       },
-                      child: const Text(
-                        "Forget Password ?",
+                      child: Text(
+                        appLocalizations.forgetPassword,
                         style: AppStyle.reglur14yellow,
                       ),
                     ),
@@ -175,29 +178,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   child: CustomElevatedButton(
                     onPressed: _handleLogin,
-                    text: isLoading ? "loading" : "login",
+                    text: isLoading ? "loading" : appLocalizations.login,
                   ),
                 ),
                 SizedBox(height: height * .024),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "Dont Have Account ?",
+                    Text(
+                      appLocalizations.dontHaveAcc,
                       style: AppStyle.reglur14white,
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, AppRoute.registerScreen);
                       },
-                      child: const Text(
-                        "Create One",
+                      child: Text(
+                        appLocalizations.createOne,
                         style: AppStyle.reglur14yellow,
                       ),
                     ),
                   ],
                 ),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                       child: Divider(
@@ -207,7 +210,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Text(
-                      "or",
+                      appLocalizations.or,
                       style: AppStyle.reglur14yellow,
                     ),
                     Expanded(
@@ -234,10 +237,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     hasIcon: true,
                     iconWidget: Image.asset(AppAssets.googleIcon),
-                    text: " Login With Google",
+                    text: appLocalizations.loginWithGoogle,
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
                 ),
+                SizedBox(height: height * .03),
+                const LanguageToggle(),
               ],
             ),
           ),

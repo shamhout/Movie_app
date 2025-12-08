@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/bloc/locale/localization.dart';
 import 'package:movie_app/splash/splash_screen.dart';
 import 'package:movie_app/ui/auth/ForgetPassword.dart';
 import 'package:movie_app/api/api_model/movies_response.dart';
@@ -17,7 +19,12 @@ import 'onBoarding/onboarding_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    BlocProvider(
+      create: (context) => LocaleCubit(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -25,35 +32,39 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme,
-      initialRoute: AppRoute.splashScreen,
-      routes: {
-        AppRoute.splashScreen: (context) => const SplashScreen(),
-        AppRoute.onboarding: (context) => const OnBoardingScreen(),
-        AppRoute.loginScreen: (context) => const LoginScreen(),
-        AppRoute.registerScreen: (context) => const RegisterScreen(),
-        AppRoute.homeScreen: (context) => const HomeScreen(),
-        AppRoute.homeTab: (context) => const HomeTab(),
-        AppRoute.searchTab: (context) => const SearchTab(),
-        AppRoute.browseTab: (context) => const BrowseTab(),
-        AppRoute.profileTab: (context) => const ProfileTab(),
-        AppRoute.forgetPassword: (context) => const ForgetPassword(),
-        AppRoute.movieDetailsScreen: (context) => MovieDetailsScreen(
-              movieId: ModalRoute.of(context)!.settings.arguments as int,
-            ),
-        AppRoute.seeMoreScreen: (context) {
-          final args = ModalRoute.of(context)!.settings.arguments as Map;
-          return SeeMoreScreen(
-            title: args["title"] as String,
-            movies: args["movies"] as List<Movies>,
-          );
-        },
+    return BlocBuilder<LocaleCubit, Locale>(
+      builder: (context, locale) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.darkTheme,
+          initialRoute: AppRoute.splashScreen,
+          routes: {
+            AppRoute.splashScreen: (context) => const SplashScreen(),
+            AppRoute.onboarding: (context) => const OnBoardingScreen(),
+            AppRoute.loginScreen: (context) => const LoginScreen(),
+            AppRoute.registerScreen: (context) => const RegisterScreen(),
+            AppRoute.homeScreen: (context) => const HomeScreen(),
+            AppRoute.homeTab: (context) => const HomeTab(),
+            AppRoute.searchTab: (context) => const SearchTab(),
+            AppRoute.browseTab: (context) => const BrowseTab(),
+            AppRoute.profileTab: (context) => const ProfileTab(),
+            AppRoute.forgetPassword: (context) => const ForgetPassword(),
+            AppRoute.movieDetailsScreen: (context) => MovieDetailsScreen(
+                  movieId: ModalRoute.of(context)!.settings.arguments as int,
+                ),
+            AppRoute.seeMoreScreen: (context) {
+              final args = ModalRoute.of(context)!.settings.arguments as Map;
+              return SeeMoreScreen(
+                title: args["title"] as String,
+                movies: args["movies"] as List<Movies>,
+              );
+            },
+          },
+          locale: locale,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+        );
       },
-      locale: Locale("en"),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

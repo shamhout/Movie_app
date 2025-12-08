@@ -10,6 +10,7 @@ import 'package:movie_app/ui/movie_details/widgets/stat_box.dart';
 import 'package:movie_app/utils/app_color.dart';
 import 'package:movie_app/utils/app_route.dart';
 import 'package:movie_app/utils/app_style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final int movieId;
@@ -58,6 +59,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     final isTablet = width > 600;
+    AppLocalizations appLocalizations = AppLocalizations.of(context)!;
 
     return SingleChildScrollView(
       child: Column(
@@ -194,7 +196,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                       ),
                       padding: EdgeInsets.symmetric(vertical: height * 0.018),
                     ),
-                    child: Text('Watch', style: AppStyle.roboto20BoldWhite),
+                    child: Text(appLocalizations.watch, style: AppStyle.roboto20BoldWhite),
                   ),
                 ),
                 SizedBox(height: height * 0.018),
@@ -236,14 +238,14 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                 SizedBox(height: height * 0.025),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Screen Shots', style: AppStyle.roboto24BoldWhite),
+                  child: Text(appLocalizations.screenShots, style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.01),
                 ScreenshotsColumn(images: widget.movie.mediumScreenshots ?? []),
                 SizedBox(height: height * 0.025),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Similar', style: AppStyle.roboto24BoldWhite),
+                  child: Text(appLocalizations.similar, style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.015),
                 FutureBuilder(
@@ -292,7 +294,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                 SizedBox(height: height * 0.025),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Summary', style: AppStyle.roboto24BoldWhite),
+                  child: Text(appLocalizations.summary, style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.01),
                 Text(
@@ -302,7 +304,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                 SizedBox(height: height * 0.025),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Cast', style: AppStyle.roboto24BoldWhite),
+                  child: Text(appLocalizations.cast, style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.01),
                 Column(
@@ -318,7 +320,7 @@ class _MovieDetailsContentState extends State<MovieDetailsContent> {
                 SizedBox(height: height * 0.025),
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Text('Genres', style: AppStyle.roboto24BoldWhite),
+                  child: Text(appLocalizations.genres, style: AppStyle.roboto24BoldWhite),
                 ),
                 SizedBox(height: height * 0.012),
                 GenresList(genres: widget.movie.genres ?? []),
