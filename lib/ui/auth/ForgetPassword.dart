@@ -6,7 +6,6 @@ import '../../utils/app_color.dart';
 import '../../utils/app_style.dart';
 import '../../utils/custom_elevated_button.dart';
 
-
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
 
@@ -143,7 +142,9 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     if (value.length < 8) {
                       return "Password must be at least 8 characters long";
                     }
-                    final strongPasswordRegex = RegExp(r'^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$');
+                    final strongPasswordRegex = RegExp(
+                      r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$',
+                    );
                     if (!strongPasswordRegex.hasMatch(value)) {
                       return "Must contain an uppercase letter, a lowercase letter, and a number";
                     }
