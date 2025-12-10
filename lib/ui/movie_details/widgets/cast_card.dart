@@ -17,14 +17,17 @@ class CastCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+
     return Container(
       margin: EdgeInsets.only(bottom: height * 0.015),
-      padding: EdgeInsets.symmetric(horizontal: width * 0.035, vertical: height * 0.015),
+      padding: EdgeInsets.symmetric(
+          horizontal: width * 0.035, vertical: height * 0.015),
       decoration: BoxDecoration(
         color: const Color(0xFF2E2E2E),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
@@ -33,6 +36,12 @@ class CastCard extends StatelessWidget {
               width: 55,
               height: 55,
               fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => Container(
+                width: 55,
+                height: 55,
+                color: Colors.grey,
+                child: const Icon(Icons.person, color: Colors.white),
+              ),
             ),
           ),
           const SizedBox(width: 12),
@@ -40,17 +49,22 @@ class CastCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Name : $name", style: AppStyle.roboto20RegularWhite),
+                Text(
+                  name,
+                  style: AppStyle.roboto20RegularWhite,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 const SizedBox(height: 4),
                 Text(
-                  "Character : $character",
+                  character,
                   style: AppStyle.roboto20RegularWhite,
-                  overflow: TextOverflow.ellipsis,
                   maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

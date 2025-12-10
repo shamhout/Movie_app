@@ -10,26 +10,19 @@ class MovieModel {
   final double? rating;
   final int? runtime;
   final List<String>? genres;
-
   final int? likeCount;
-
   final String? descriptionIntro;
   final String? descriptionFull;
-
   final String? ytTrailerCode;
   final String? language;
   final String? mpaRating;
-
   final String? backgroundImage;
   final String? backgroundImageOriginal;
-
   final String? smallCoverImage;
   final String? mediumCoverImage;
   final String? largeCoverImage;
-
   final List<String>? mediumScreenshots;
   final List<String>? largeScreenshots;
-
   final List<ActorModel>? cast;
   final List<TorrentModel>? torrents;
 
@@ -90,14 +83,20 @@ class MovieModel {
         json['medium_screenshot_image1'],
         json['medium_screenshot_image2'],
         json['medium_screenshot_image3'],
-      ].where((e) => e is String && e.isNotEmpty)),
+      ].where((e) => e != null && e != "")),
       largeScreenshots: List<String>.from([
         json['large_screenshot_image1'],
         json['large_screenshot_image2'],
         json['large_screenshot_image3'],
-      ].where((e) => e is String && e.isNotEmpty)),
-      cast: json['cast'] != null ? (json['cast'] as List).map((e) => ActorModel.fromJson(e)).toList() : null,
-      torrents: json['torrents'] != null ? (json['torrents'] as List).map((e) => TorrentModel.fromJson(e)).toList() : null,
+      ].where((e) => e != null && e != "")),
+      cast: json['cast'] != null
+          ? (json['cast'] as List).map((e) => ActorModel.fromJson(e)).toList()
+          : null,
+      torrents: json['torrents'] != null
+          ? (json['torrents'] as List)
+              .map((e) => TorrentModel.fromJson(e))
+              .toList()
+          : null,
     );
   }
 }

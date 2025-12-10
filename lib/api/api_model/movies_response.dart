@@ -68,6 +68,9 @@ class Movies {
   String? largeCoverImage;
   double? rating;
 
+  /// Getter لتسهيل استخدام mediumCoverImage في UI
+  String? get mediumCoverImage => largeCoverImage;
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
